@@ -15,4 +15,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.async.bus;
+
+import com.noctis.android.notes.helpers.LogDelegate;
+import com.noctis.android.notes.models.Note;
+
+import java.util.List;
+
+
+public class NotesLoadedEvent {
+
+  public List<Note> notes;
+
+
+  public NotesLoadedEvent (List<Note> notes) {
+    LogDelegate.d(this.getClass().getName());
+    this.notes = notes;
+  }
+
+}

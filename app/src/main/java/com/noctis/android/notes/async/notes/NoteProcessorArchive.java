@@ -15,4 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.async.notes;
+
+import com.noctis.android.notes.models.Note;
+import com.noctis.android.notes.db.DbHelper;
+
+import java.util.List;
+
+
+public class NoteProcessorArchive extends NoteProcessor {
+
+  boolean archive;
+
+
+  public NoteProcessorArchive (List<Note> notes, boolean archive) {
+    super(notes);
+    this.archive = archive;
+  }
+
+
+  @Override
+  protected void processNote (Note note) {
+    DbHelper.getInstance().archiveNote(note, archive);
+  }
+}

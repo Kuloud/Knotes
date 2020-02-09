@@ -14,5 +14,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.noctis.android.notes.receiver;
 
-include ':app'
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.noctis.android.notes.async.AlarmRestoreOnRebootService;
+import com.noctis.android.notes.helpers.LogDelegate;
+
+
+public class BootCompleteReceiver extends BroadcastReceiver {
+
+  @Override
+  public void onReceive (Context ctx, Intent intent) {
+    LogDelegate.i("System rebooted: refreshing reminders");
+    if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+      AlarmRestoreOnRebootService.enqueueWork(ctx, intent);
+    }
+  }
+
+
+}

@@ -15,4 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.exceptions;
+
+public class GenericException extends RuntimeException {
+
+  public GenericException (String message) {
+    super(message);
+  }
+
+}

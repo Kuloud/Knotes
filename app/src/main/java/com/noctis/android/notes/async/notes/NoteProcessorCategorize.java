@@ -15,4 +15,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.async.notes;
+
+import com.noctis.android.notes.models.Category;
+import com.noctis.android.notes.models.Note;
+import com.noctis.android.notes.db.DbHelper;
+
+import java.util.List;
+
+
+public class NoteProcessorCategorize extends NoteProcessor {
+
+  Category category;
+
+
+  public NoteProcessorCategorize (List<Note> notes, Category category) {
+    super(notes);
+    this.category = category;
+  }
+
+
+  @Override
+  protected void processNote (Note note) {
+    note.setCategory(category);
+    DbHelper.getInstance().updateNote(note, false);
+  }
+}

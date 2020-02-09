@@ -15,4 +15,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes;
+
+import android.os.SystemClock;
+
+import androidx.fragment.app.Fragment;
+
+
+public class BaseFragment extends Fragment {
+
+
+  private static final long OPTIONS_ITEM_CLICK_DELAY_TIME = 1000;
+  private long mLastClickTime;
+
+  @Override
+  public void onStart () {
+    super.onStart();
+  }
+
+  @Override
+  public void onDestroy () {
+    super.onDestroy();
+  }
+
+  protected boolean isOptionsItemFastClick () {
+    if (SystemClock.elapsedRealtime() - mLastClickTime < OPTIONS_ITEM_CLICK_DELAY_TIME) {
+      return true;
+    }
+    mLastClickTime = SystemClock.elapsedRealtime();
+    return false;
+  }
+}

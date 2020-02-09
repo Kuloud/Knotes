@@ -14,5 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.noctis.android.notes.utils;
 
-include ':app'
+import android.content.Context;
+import android.net.ConnectivityManager;
+
+
+public class ConnectionManager {
+
+  private ConnectionManager () {
+    // hides public constructor
+  }
+
+  /**
+   * Checks for available internet connection
+   */
+  public static boolean internetAvailable (Context ctx) {
+    ConnectivityManager conMgr = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+    if (conMgr.getActiveNetworkInfo() != null) {
+      return conMgr.getActiveNetworkInfo().isConnected();
+    }
+    return false;
+  }
+}

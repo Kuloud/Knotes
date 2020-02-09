@@ -15,4 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes;
+
+import com.noctis.android.notes.models.Note;
+
+
+public class BaseUnitTest {
+
+  protected Note getNote (Long id, String title, String content) {
+    Note note = new Note();
+    note.set_id(id);
+    note.setTitle(title);
+    note.setContent(content);
+    return note;
+  }
+}

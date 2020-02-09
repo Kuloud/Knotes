@@ -15,4 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.models;
+
+public class PushBulletMessage {
+
+  public final String message;
+
+
+  public PushBulletMessage (final String message) {
+    this.message = message;
+  }
+}

@@ -15,4 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.models;
+
+public interface PasswordValidator {
+
+  enum Result {
+    SUCCEED, FAIL, RESTORE
+  }
+
+  void onPasswordValidated (Result result);
+}

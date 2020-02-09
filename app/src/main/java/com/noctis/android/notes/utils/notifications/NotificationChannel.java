@@ -15,4 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.utils.notifications;
+
+public class NotificationChannel {
+
+    int importance;
+    String name;
+    String description;
+    String id;
+
+    NotificationChannel(int importance, String name, String description, String id) {
+        this.importance = importance;
+        this.name = name;
+        this.description = description;
+        this.id = id;
+    }
+}

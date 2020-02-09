@@ -15,4 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.async.bus;
+
+import com.noctis.android.notes.helpers.LogDelegate;
+
+public class NavigationUpdatedNavDrawerClosedEvent {
+
+  public final Object navigationItem;
+
+
+  public NavigationUpdatedNavDrawerClosedEvent (Object navigationItem) {
+    LogDelegate.d(this.getClass().getName());
+    this.navigationItem = navigationItem;
+  }
+}

@@ -15,4 +15,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.helpers.count;
+
+import com.noctis.android.notes.models.Note;
+import java.util.regex.Pattern;
+
+public interface WordCounter {
+
+  int countWords (Note note);
+
+  int countChars (Note note);
+
+  default String sanitizeTextForWordsAndCharsCount (Note note, String field) {
+    if (note.isChecklist()) {
+      String regex = "(" + Pattern.quote(it.feio.android.checklistview.interfaces.Constants.CHECKED_SYM) + "|"
+          + Pattern.quote(it.feio.android.checklistview.interfaces.Constants.UNCHECKED_SYM) + ")";
+      field = field.replaceAll(regex, "");
+    }
+    return field;
+  }
+}

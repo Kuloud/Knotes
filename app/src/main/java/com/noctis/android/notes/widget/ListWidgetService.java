@@ -15,4 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.widget;
+
+import android.content.Intent;
+import android.widget.RemoteViewsService;
+
+
+public class ListWidgetService extends RemoteViewsService {
+
+  @Override
+  public RemoteViewsFactory onGetViewFactory (Intent intent) {
+    return new ListRemoteViewsFactory(this.getApplication(), intent);
+  }
+}

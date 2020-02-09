@@ -14,5 +14,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+package com.noctis.android.notes.utils;
 
-include ':app'
+import android.app.ProgressDialog;
+import android.content.Context;
+
+
+public class LoadingDialog extends ProgressDialog {
+
+  Context context;
+
+
+  public LoadingDialog (Context context) {
+    super(context);
+    this.context = context;
+  }
+
+
+  @Override
+  public void onBackPressed () {
+    super.onBackPressed();
+    this.cancel();
+  }
+
+}

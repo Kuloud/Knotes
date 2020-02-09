@@ -15,4 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.models.listeners;
+
+import com.noctis.android.notes.models.Attachment;
+
+
+public interface OnAttachingFileListener {
+
+  void onAttachingFileErrorOccurred (Attachment mAttachment);
+
+  void onAttachingFileFinished (Attachment mAttachment);
+}

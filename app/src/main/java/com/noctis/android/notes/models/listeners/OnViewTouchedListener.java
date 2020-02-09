@@ -15,4 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-include ':app'
+package com.noctis.android.notes.models.listeners;
+
+import android.view.MotionEvent;
+
+
+public interface OnViewTouchedListener {
+
+  void onViewTouchOccurred (MotionEvent ev);
+}
